@@ -21,8 +21,8 @@ imagePullSecret: acr-credentials
 
 service:
   type: ClusterIP
-  port: 3000
-  targetPort: 3000
+  port: 5000
+  targetPort: 5000
   protocol: TCP
 
 nameOverride: ""
