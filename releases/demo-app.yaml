@@ -1,12 +1,12 @@
 ---
-apiVersion: flux.weave.works/v1beta1
+apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
-  name: demo-app-staging
+  name: demo-app
   namespace: demo
   annotations:
-    flux.weave.works/automated: "true"
-    flux.weave.works/tag.chart-image: glob:staging-*
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.chart-image: glob:staging-*
 spec:
   releaseName: demo-app-staging
   chart:
