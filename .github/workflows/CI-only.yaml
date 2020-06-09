@@ -39,9 +39,11 @@ jobs:
       working-directory: ./demo-repo
       
   deploy:
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@v2
     - name: Push to container registry
       env:
         VAULT_TOKEN: ${{ secrets.VAULT_TOKEN }}
