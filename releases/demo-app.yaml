@@ -1,0 +1,18 @@
+---
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: demo-app-staging
+  namespace: my-app
+  annotations:
+    flux.weave.works/automated: "true"
+    flux.weave.works/tag.chart-image: glob:staging-*
+spec:
+  releaseName: demo-app-staging
+  chart:
+    git: ssh://git@github.com/argamanza/flux-demo
+    ref: master
+    path: charts/demo-app
+  values:
+    image: argamanza/demo-app:staging-af2a21c
+    replicaCount: 1
