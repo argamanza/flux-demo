@@ -37,6 +37,11 @@ jobs:
       run: |
         pytest
       working-directory: ./demo-repo
+      
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
     - name: Push to container registry
       env:
         VAULT_TOKEN: ${{ secrets.VAULT_TOKEN }}
