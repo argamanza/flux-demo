@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return "Flask inside Docker!!"
+    return "Welcome to Flux Demo! This is version 0.1.0"
 
 
 if __name__ == "__main__":
