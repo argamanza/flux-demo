@@ -3,7 +3,6 @@ FROM python:3.7-alpine
 LABEL maintainer="tzahi.argaman@develeap.com"
 COPY . /app
 WORKDIR /app
-RUN ls
 RUN apk add --no-cache python2
 RUN pip install -r requirements.txt
 ENTRYPOINT ["python"]

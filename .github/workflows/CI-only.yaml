@@ -38,11 +38,11 @@ jobs:
         pytest
       working-directory: ./demo-repo
     - name: Push to container registry
-      uses: docker/build-push-action@v1
-      with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
-        dockerfile: demo-repo/Dockerfile
-        repository: argamanza/demo-app
-        tag_with_ref: true
-        tag_with_sha: true
+      env:
+        VAULT_TOKEN: ${{ secrets.VAULT_TOKEN }}
+      run: |
+        SHORT_SHA="$(git rev-parse --short ${{ github.sha }})"
+        docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+        docker build . -t argamanza/demo-app:staging-$SHORT_SHA
+        docker push argamanza/demo-app:staging-$SHORT_SHA
+      working-directory: ./demo-repo
