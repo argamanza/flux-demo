@@ -14,5 +14,5 @@ spec:
     ref: master
     path: charts/demo-app
   values:
-    image: argamanza/demo-app:staging-228133c
+    image: argamanza/demo-app:staging-462e463
     replicaCount: 1
