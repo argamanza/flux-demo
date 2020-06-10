@@ -4,7 +4,7 @@
 
 replicaCount: 1
 
-image: argamanza/demo-app:staging-af2a21c
+image: argamanza/demo-app:staging-d684cdd
 imagePullPolicy: Always
 
 envFrom: env
